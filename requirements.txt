@@ -1,5 +1,0 @@
-basho-erlastic==2.1.1
-cx-Oracle==8.0.0
-python3-protobuf==2.5.0
-riak==2.7.0
-six==1.15.0

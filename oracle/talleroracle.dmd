@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="talleroracle" id="820691AA-7BEB-3DD0-5299-71BAAD5F646C" version="3.5">
+<createdBy>julian.coronado</createdBy>
+<createdTime>2020-09-01 01:20:10 UTC</createdTime>
+<ownerDesignName>talleroracle</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>820691AA-7BEB-3DD0-5299-71BAAD5F646C</designId>
+</OSDM_Design>

@@ -4,7 +4,7 @@ def get_connection_uri():
     """
     pujlab, clave: Pujlab123!, ip: 127.0.0.1, puerto: 1521
     """
-    hostname = '127.0.0.1'
+    hostname = 'oracle-db'
     port = 1521
     sid = 'xe'
     username = 'pujlab'

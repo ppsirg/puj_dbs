@@ -2,7 +2,7 @@ version: '3'
 
 services: 
   oracle-db:
-    build: /database_environment 
+    build: ./database_environment/ 
     #image: oracleinanutshell/oracle-xe-11g:latest
     ports:
       - 1521:1521
@@ -12,7 +12,7 @@ services:
       - ORACLE_ALLOW_REMOTE=true
       - ORACLE_DISABLE_ASYNCH_IO=true
       - ORACLE_ENABLE_XDB=true
-  python-app:
-    build: /application_environment
-    ports:
-      - 80:80
+  #python-app:
+  #  build: ./application_environment/
+  #  ports:
+  #    - 80:80

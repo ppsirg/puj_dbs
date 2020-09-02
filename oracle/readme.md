@@ -11,7 +11,7 @@
 	2.6 http://{host}:80//followers_tree/{root_email}
 
 
-Informacion detallada:
+# Informacion detallada:
 
 1. Archivo database-environment/init02.sql contiene el modelo de la BD "MER"
 2. Arcivo database-environment/init03.sql contiene las instrucciones "INSERT" para carga de datos de prueba

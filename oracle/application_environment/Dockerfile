@@ -22,6 +22,6 @@ RUN ldconfig
 
 RUN pip install --ignore-installed -r requirements.txt
 
-EXPOSE 8000
+EXPOSE 80 8000
 CMD /wait && uvicorn app:app
 #CMD ["uvicorn", "app:app"]

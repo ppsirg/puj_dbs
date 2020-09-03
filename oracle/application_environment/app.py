@@ -16,6 +16,13 @@ def release_database_session():
     db_pool.close()
     print('connections closed')
 
+@app.get("/date")
+def dateView(q: Optional[str] = None):
+    query = get_fecha_db()
+    resp = search_in_db(query)
+    print(type(resp), resp)
+    return {"item_id": 'some', "q": q}
+
 
 @app.get("/login/{user_id}")
 def loginView(user_id: int, q: Optional[str] = None):

@@ -14,6 +14,19 @@ def example_query(user_id):
     return f'select * from pujlab.USER WHERE id_user={user_id}'
 
 
+def get_fecha_db():
+    """
+    Despliegue los datos que se visualizan cuando un usuario dado ingresa a la aplicación. Esto
+    incluye
+    - Información de su cuenta
+    - Los últimos 3 mensajes que ha puesto (más recientes) y las 2 réplicas más recientes
+    que cada uno de esos mensajes ha recibido. Todo esto en ord en cronológico,
+    empezando por los más recientes.
+    - Los 3 mensajes más recientes que han puesto 3 de los usuarios a los que sigue.
+    Despliega los 3 primeros usuarios, en orden alfabético.
+    """
+    return 'select sysdate from dual'
+
 def get_login_data(user_id):
     """
     Despliegue los datos que se visualizan cuando un usuario dado ingresa a la aplicación. Esto

@@ -4,12 +4,13 @@
 0. Ejecutar el comando "docker-compose up build"
 1. Ejecutar el comando "docker-compose up -d", este es el encargado de inicializar el motor oracle y la aplicacion en python  
 2. Para acceder a la aplicacuin ingrese a la direccion http://{host}:80 y haces uso de las siguientes API's:  
-2.1 http://{host}:80/login/{user_id}  
-2.2 http://{host}:80/followers/differential/{user_a_email}/{user_b_email}  
-2.3 http://{host}:80//user_by_email/{email}  
-2.4 http://{host}:80//list_recent_users_tweet/  
-2.5 http://{host}:80//city_rank/  
-2.6 http://{host}:80//followers_tree/{root_email}  
+2.0 http://{host}:8000/docs/ muestra el api explorer desde donde se pueden usar todas las consultas (por defecto localhost)
+2.1 http://{host}:8000/login/{user_id}  
+2.2 http://{host}:8000/followers/differential/{user_a_email}/{user_b_email}  
+2.3 http://{host}:8000//user_by_email/{email}  
+2.4 http://{host}:8000//list_recent_users_tweet/  
+2.5 http://{host}:8000//city_rank/  
+2.6 http://{host}:8000//followers_tree/{root_email}  
 
 
 # Informacion detallada:

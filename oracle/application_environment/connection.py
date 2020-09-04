@@ -2,9 +2,9 @@
 
 def get_connection_uri():
     """
-    pujlab, clave: Pujlab123!, ip: oracle-db puerto: 1521
+    pujlab, clave: Pujlab123!, ip: 127.0.0.1, puerto: 1521
     """
-    hostname = 'oracle-db'
+    hostname = '127.0.0.1'
     port = 1521
     sid = 'xe'
     username = 'pujlab'
@@ -12,12 +12,19 @@ def get_connection_uri():
     return (username, password, f'{hostname}:{port}/{sid}')
 
 
-def search_in_db(db_pool, query):
-    connection = db_pool.acquire()
-    cursor = connection.cursor()
-    if query:
-        resp = cursor.execute(query)
+def search_in_db(conn, q, d=None):
+    print(q, d)
+    cursor = conn.cursor()
+    if d:
+        cursor.execute(q, d)
     else:
-        resp = {'data': None}
-    db_pool.release(connection)
+        cursor.execute(q)
+    resp = cursor.fetchall()
     return resp
+
+
+def write_in_db(conn, q, d):
+    print(q, d)
+    cursor = conn.cursor()
+    cursor.execute(q, d)
+    return conn.commit()

@@ -20,6 +20,7 @@ msg_per_user = 100
 max_replies_per_user = 5
 max_followers = 10
 format_timestamp = '%Y/%m/%d_%H:%M:%S:%f'
+MESSAGE_TYPES = ['ORIGINAL', 'REPLY', 'SHARE']
 
 
 class RiakBase(object):
@@ -64,44 +65,54 @@ class Cities(RiakBase):
 
 class User(RiakBase):
     INFO_BUCKET = 'users'
-    MSG_BUCKET = '{}_messages'
+    MSG_BUCKET = 'tweet'
+    LAST_BUCKET = 'tweet_last10'
 
-    def __init__(self, id, email=None, city=None):
+    def __init__(self, email, city=None):
         super().__init__(self)
-        self.id = id
-        self.repr = f'user_{id}'
+        self.repr = f'user_{email}'
         self.cities = Cities()
+        # initialize bucket
         self.info_bucket = self.client.bucket(self.INFO_BUCKET)
-        self.msg_bucket = self.client.bucket(self.MSG_BUCKET.format(self.id))
+        self.msg_bucket = self.client.bucket(self.MSG_BUCKET)
+        self.last_bucket = self.client.bucket(self.LAST_BUCKET)
         info = self.info_bucket.get(self.repr)
         if not info.data:
             self.email = email if email else fake.email()
             self.city = city if city else choices(self.cities._list)[0]
             self.info = self.info_bucket.new(
-                self.repr, 
-                {'id': self.id, 'email': self.email, 'city': self.city, 'following_to': []}
+                self.repr,
+                # structure of user
+                {
+                    'username': fake.name(), 'email': self.email, 
+                    'city': self.city, 'following': [],
+                    'publicUser': randint(0,5) == 3,
+                    'mobile': {'number': fake.phone_number(), 'prefix': fake.country_calling_code()}
+                    }
                 )
             self.info.store()
-            self.last_messages = self.msg_bucket.new(
-                'last_messages',
+            self.last_messages = self.last_bucket.new(
+                self.repr,
+                # structure of last messages
                 {'data': []}
                 )
             self.last_messages.store()
         else:
             self.info = info
-            self.last_messages = self.msg_bucket.get('last_messages')
+            self.last_messages = self.last_bucket.get(self.repr)
 
     def add_message(self, message, reply_to=None, timestamp=None):
         # build message body
         timestamp = datetime.now().strftime(format_timestamp) if not timestamp else timestamp
-        msg_hash = blake2b(message.encode(encoding='utf-8'), digest_size=10)
-        msg_id = f'{timestamp}__{msg_hash.hexdigest()}'
+        owner_info = {k,v for k,v in self.info.data.items() if k != 'following'}
         message_body = {
-            'id': msg_id
+            'timestamp': timestamp,
             'content': message,
+            'messageType': choices(MESSAGE_TYPES)[0],
+            'owner': owner_info
         }
         if reply_to:
-            message_body['reply_to'] = reply_to
+            message_body['messageBase'] = reply_to
         # save message
         new_msg = self.msg_bucket.new(msg_id, message_body)
         new_msg.store()
@@ -109,22 +120,20 @@ class User(RiakBase):
         self.cities.increment(self.info.data['city'])
         # update last messages bucket
         self.last_messages.data['data'].insert(message_body)
-        if len(self.last_messages.data['data']) == 6:
+        if len(self.last_messages.data['data']) == 11:
             self.last_messages.data['data'].pop()
         self.last_messages.store()
         return new_msg
 
     def get_last_messages(self, num):
-        msgs = [[a, a.split('__')] for a in self.msg_bucket.get_keys() if a != 'last_messages']
-        msgs.sort(reverse=True, key=lambda x: datetime.strptime(x[1][0], format_timestamp))
-        return msgs[:num]
-
-    def get_last_messages_from_value(self):
-        last_messages = self.msg_bucket.get('last_messages').data
-        return last_messages.get('data')
+        last_messages = self.last_messages.data
+        if num >= 10:
+            return last_messages.get('data')
+        else:
+            return last_messages.get('data')[:num]
 
     def follow_user(self, user_to_follow_id):
-        self.info['following_to'].append(user_to_follow_id)
+        self.info['following'].append(user_to_follow_id)
         self.info.store()
 
 

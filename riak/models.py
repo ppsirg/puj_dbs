@@ -82,10 +82,17 @@ class User(RiakBase):
                 {'id': self.id, 'email': self.email, 'city': self.city, 'following_to': []}
                 )
             self.info.store()
+            self.last_messages = self.msg_bucket.new(
+                'last_messages',
+                {'data': []}
+                )
+            self.last_messages.store()
         else:
             self.info = info
+            self.last_messages = self.msg_bucket.get('last_messages')
 
     def add_message(self, message, reply_to=None, timestamp=None):
+        # build message body
         timestamp = datetime.now().strftime(format_timestamp) if not timestamp else timestamp
         msg_hash = blake2b(message.encode(encoding='utf-8'), digest_size=10)
         msg_id = f'{timestamp}__{msg_hash.hexdigest()}'
@@ -95,15 +102,26 @@ class User(RiakBase):
         }
         if reply_to:
             message_body['reply_to'] = reply_to
+        # save message
         new_msg = self.msg_bucket.new(msg_id, message_body)
         new_msg.store()
+        # update cities counter
         self.cities.increment(self.info.data['city'])
+        # update last messages bucket
+        self.last_messages.data['data'].insert(message_body)
+        if len(self.last_messages.data['data']) == 6:
+            self.last_messages.data['data'].pop()
+        self.last_messages.store()
         return new_msg
 
     def get_last_messages(self, num):
-        msgs = [[a, a.split('__')] for a in self.msg_bucket.get_keys()]
+        msgs = [[a, a.split('__')] for a in self.msg_bucket.get_keys() if a != 'last_messages']
         msgs.sort(reverse=True, key=lambda x: datetime.strptime(x[1][0], format_timestamp))
         return msgs[:num]
+
+    def get_last_messages_from_value(self):
+        last_messages = self.msg_bucket.get('last_messages').data
+        return last_messages.get('data')
 
     def follow_user(self, user_to_follow_id):
         self.info['following_to'].append(user_to_follow_id)

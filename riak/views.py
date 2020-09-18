@@ -1,5 +1,10 @@
 from models import User, Cities
 from pprint import pprint
+from riak import RiakClient
+from argparse import ArgumentParser
+
+
+cl = RiakClient(protocol='http', host='127.0.0.1', http_port=8098)
 
 
 def get_own_msg(user_email):
@@ -10,7 +15,7 @@ def get_own_msg(user_email):
     usuario que lo  publicó. Si  son mensajes re-enviados, 
     indica el usuarioque publicó el mensaje original.
     """
-    usr = User(user_email)
+    usr = User(cl, user_email)
     last_messages = usr.get_last_messages(10)
     for msg in last_messages:
         if msg['messageType'] == 'ORIGINAL':
@@ -35,11 +40,11 @@ def get_follower_msg(user_email):
     alfabético y, los mensajes de cada usuario,en orden 
     cronológico,empezando por el más reciente
     """
-    usr = User(user_email)
+    usr = User(cl, user_email)
     influencers = usr.info.data['following']
     influencers.sort()
     for followed_email in influencers:
-        influencer = User(followed_email)
+        influencer = User(cl, followed_email)
         print(influencer.info.data['email'])
         last_messages = influencer.get_last_messages(5)
         for msg in last_messages:
@@ -52,4 +57,30 @@ def city_ranking():
     Realice un ranking de las ciudades por el número de 
     tweets que han producido los usuarios de esa ciudad
     """
-    ranking = Cities.get_ranking(15)
+    locations = Cities(cl)
+    ranking = locations.get_ranking(15)
+    pprint(ranking)
+    return ranking
+
+
+def main():
+    stop = False
+    while not stop:
+        point = input('point to run')
+        if int(point) == 0:
+            stop = True
+            break
+        elif int(point) == 1:
+            user_email = input('put user email')
+            get_own_msg(user_email)
+        elif int(point) == 2:
+            user_email = input('put user email')
+            get_follower_msg(user_email)
+        elif int(point) == 3:
+            city_ranking()
+        else:
+            continue
+
+
+if __name__ == "__main__":
+    main()

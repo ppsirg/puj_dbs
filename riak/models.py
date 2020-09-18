@@ -32,14 +32,14 @@ class RiakBase(object):
 class Cities():
     """Manage cities to calculate cities ranking of tweets.
     """
-    BUCKET = 'citiesY'
+    BUCKET = 'cities'
 
     def __init__(self, cl):
         self.client = cl
         self.bucket = self.client.bucket(self.BUCKET)
         # check if data
         keys = self.bucket.get(self.BUCKET)
-        if keys:
+        if keys.data:
             self.value = self.bucket.get(self.BUCKET)
         else:
             cities_list = {f'{fake.city()}': 0 for a in range(num_cities)}
@@ -56,7 +56,6 @@ class Cities():
         value.data[city] += 1
         value.store()
 
-    @property
     def get_ranking(self, num):
         rank = [(k,v) for k,v in self.value.data.items()]
         rank.sort(reverse=True, key=lambda x: x[1])
@@ -97,6 +96,12 @@ class User():
                 {'data': []}
                 )
             self.last_messages.store()
+            indx = self.info_bucket.get('usr_indx')
+            if indx.data:
+                indx.data['usr'].append(self.repr)
+            else:
+                indx = self.info_bucket.new('usr_indx', {'usr': [self.repr]})
+            indx.store()
         else:
             self.info = info
             self.last_messages = self.last_bucket.get(self.repr)

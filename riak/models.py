@@ -211,7 +211,7 @@ def populate():
                 print('share', new_reply)
 
 
-def populatepe():
+def populate():
     cl = RiakClient(protocol='http', host='127.0.0.1', http_port=8098)
     cities = Cities(cl)
     users_list = []

@@ -41,9 +41,7 @@ def get_follower_msg(user_email):
     cronológico,empezando por el más reciente
     """
     usr = User(cl, user_email)
-    print('yey')
     influencers = usr.info.data['following']
-    print('miau')
     influencers.sort()
     print(influencers)
     for followed_email in influencers:

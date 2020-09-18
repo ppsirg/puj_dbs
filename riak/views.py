@@ -41,8 +41,11 @@ def get_follower_msg(user_email):
     cronológico,empezando por el más reciente
     """
     usr = User(cl, user_email)
+    print('yey')
     influencers = usr.info.data['following']
+    print('miau')
     influencers.sort()
+    print(influencers)
     for followed_email in influencers:
         influencer = User(cl, followed_email)
         print(influencer.info.data['email'])
@@ -64,17 +67,37 @@ def city_ranking():
 
 
 def main():
+    """
+    3 Implemente una aplicación sencilla en algún lenguaje de programación, 
+    que permita listar los datos que se refieren en el punto 1
+    """
+    examples = [
+        'isa08@gmail.com',
+        'flawson@gmail.com',
+        'nllano@castro.es',
+        'rivasdolores@industrias.com',
+        'stephenswendy@lopez.com',
+        'vcantero@yahoo.com',
+        'wramos@hotmail.com',
+        'imunoz@hotmail.com',
+        'hudsontony@gmail.com',
+    ]
     stop = False
+    print('some data to test: ', examples)
+    print('type 0 for exit')
+    print('type 1 to get user messages')
+    print('type 2 to get user following messages')
+    print('type 3 for get city ranking')
     while not stop:
-        point = input('point to run')
+        point = input('point to run ')
         if int(point) == 0:
             stop = True
             break
         elif int(point) == 1:
-            user_email = input('put user email')
+            user_email = input('put user email ')
             get_own_msg(user_email)
         elif int(point) == 2:
-            user_email = input('put user email')
+            user_email = input('put user email ')
             get_follower_msg(user_email)
         elif int(point) == 3:
             city_ranking()

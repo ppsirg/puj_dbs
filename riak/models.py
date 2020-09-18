@@ -69,7 +69,7 @@ class User():
 
     def __init__(self, cl, email, city=None):
         self.client = cl
-        self.repr = f'user_{email}'
+        self.repr = f'{email}'
         self.cities = Cities(self.client)
         # initialize bucket
         self.info_bucket = self.client.bucket(self.INFO_BUCKET)
@@ -209,6 +209,68 @@ def populate():
                         }
                 )
                 print('share', new_reply)
-    
+
+
+def populatepe():
+    cl = RiakClient(protocol='http', host='127.0.0.1', http_port=8098)
+    cities = Cities(cl)
+    users_list = []
+    # create users
+    print('doing users')
+    for i in range(num_users):
+        usr = User(cl, fake.email())
+        users_list.append(usr)
+        print(usr.info.data)
+    # make users follow each others
+    print('doing follows')
+    for usr in users_list:
+        to_follow = choices(users_list, k=10)
+        for tg in to_follow:
+            usr.follow_user(tg.repr)
+        print(usr.info.data)
+    # create messages
+    print('doing messages')
+    for usr in users_list:
+        num_msg = randint(5, msg_per_user)
+        current = datetime.now()
+        for msg in range(num_msg):
+            current -= timedelta(randint(1, 10))
+            new_msg = usr.add_message(
+                fake.text(),
+                timestamp=current.strftime(format_timestamp)
+                )
+            # figure out if make a share or a replica out of this
+            random_pick = randint(0,5)
+            print('original', new_msg)
+            if random_pick == 2:
+                # its a replica
+                replicant = choices(users_list)[0]
+                reply_timestamp = current + timedelta(minutes=randint(3, 90))
+                original_msg_ref = '_'.join([new_msg['owner']['email'], new_msg['timestamp']])
+                new_reply = replicant.add_message(
+                    fake.text(), 
+                    timestamp=reply_timestamp.strftime(format_timestamp),
+                    reply_to={
+                        'ref': original_msg_ref, 
+                        'content': new_msg['content']
+                        }
+                )
+                print('reply', new_reply)
+            elif random_pick == 3:
+                # its a share
+                replicant = choices(users_list)[0]
+                reply_timestamp = current + timedelta(minutes=randint(3, 90))
+                original_msg_ref = '_'.join([new_msg['owner']['email'], new_msg['timestamp']])
+                new_reply = replicant.add_message(
+                    '', 
+                    timestamp=reply_timestamp.strftime(format_timestamp),
+                    reply_to={
+                        'ref': original_msg_ref, 
+                        'content': new_msg['content']
+                        }
+                )
+                print('share', new_reply)
+
+
 if __name__ == "__main__":
     populate()

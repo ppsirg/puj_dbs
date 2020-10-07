@@ -1,0 +1,2 @@
+def initialLoginView(context):
+    pass

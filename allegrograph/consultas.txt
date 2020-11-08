@@ -1,0 +1,47 @@
+2)
+prefix class: <http://example.com/class/> 
+prefix  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix  prop:  <http://example.com/property/>
+SELECT ?mv ?nma ?nmd ?ttl ?p WHERE {
+  ?ac rdf:type class:Person .
+  ?ac prop:name ?nma .
+  ?mv prop:actor ?ac .
+  OPTIONAL{ 
+    ?dr rdf:type class:Person .
+    ?mv prop:director ?dr .
+    ?dr prop:name ?nmd }.
+  ?mv rdf:type class:Movie .
+  ?mv prop:title ?ttl .
+  ?mv ?p ?ttl }
+
+3)
+prefix class: <http://example.com/class/> 
+prefix  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix  prop:  <http://example.com/property/>
+SELECT ?nmd ?ttl ?sr ?vl WHERE {
+  ?dr rdf:type class:Person .
+  ?mv prop:director ?dr .
+  ?dr prop:name ?nmd.
+  ?mv prop:rating ?rt .
+  ?rt prop:value ?vl .
+  ?rt prop:source ?sr .
+  ?mv rdf:type class:Movie .
+  ?mv prop:title ?ttl . 
+  ?mv ?p ?ttl FILTER (?vl > 6)}
+
+4)
+prefix class: <http://example.com/class/> 
+prefix  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix  prop:  <http://example.com/property/>
+SELECT ?nm2 ?nm1 ?mv1 ?ttl1 WHERE {
+  ?ac2 rdf:type class:Person .
+  ?mv2 prop:actor ?ac2 .
+  ?ac2 prop:name ?nm2 .
+  ?mv2 rdf:type class:Movie .
+  ?mv2 prop:title ?ttl2. 
+  ?ac1 rdf:type class:Person .
+  ?mv1 prop:actor ?ac1 .
+  ?ac1 prop:name ?nm1 .
+  ?mv1 rdf:type class:Movie .
+  ?mv1 prop:title ?ttl1 . 
+  ?mv1 ?p ?ttl1 FILTER (?mv1 = ?mv2 && ?nm1 != ?nm2) }

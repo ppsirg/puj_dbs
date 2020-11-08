@@ -1,0 +1,173 @@
+@prefix  res:   <http://example.com/resource/> .
+@prefix  ex:    <http://example.com/> .
+@prefix  class: <http://example.com/class/> .
+@prefix  prop:  <http://example.com/property/> .
+@prefix  rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+res:Movie1 rdf:type class:Movie .
+res:Movie1 prop:title "Planet of the Apes"@en .
+res:Movie1 prop:year "2001"^^<http://www.w3.org/2001/XMLSchema#integer> .
+res:Movie1 prop:runtime "119 min".
+res:Movie1 prop:plot "An Air Force astronaut crash lands on a mysterious planet where evolved, talking apes dominate a race of primitive humans."@en .
+res:Movie1 prop:country "USA"@en .
+res:Movie1 prop:genre "Action"@en .
+res:Movie1 prop:genre "Adventure"@en .
+res:Movie1 prop:genre "SciFi"@en .
+
+res:Movie1 prop:director    1 .
+res:Person1 rdf:type class:Person .
+res:Person1 prop:name "Tim Burton".
+
+res:Movie1 prop:actor res:Person2 .
+res:Person2 rdf:type class:Person .
+res:Person2 prop:name "Mark Wahlberg" .
+res:Movie1 prop:actor res:Person3 .
+res:Person3 rdf:type class:Person .
+res:Person3 prop:name "Tim Roth" .
+res:Movie1 prop:actor res:Person4 .
+res:Person4 rdf:type class:Person .
+res:Person4 prop:name "Helena Bonham Carter" .
+res:Movie1 prop:actor res:Person5 .
+res:Person5 rdf:type class:Person .
+res:Person5 prop:name "Michael Clarke Duncan" .
+
+res:Movie1 prop:rating _:a. 
+_:a prop:source "Internet Movie Database"@en .
+_:a prop:value "5.7"^^<http://www.w3.org/2001/XMLSchema#double> .
+res:Movie1 prop:rating _:b . 
+_:b prop:source "Rotten Tomatoes"@en .
+_:b prop:value "4.5"^^<http://www.w3.org/2001/XMLSchema#double> .
+res:Movie1 prop:rating _:c . 
+_:c prop:source "Metacritic"@en .
+_:c prop:value "5"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+
+
+res:Movie2 rdf:type class:Movie .
+res:Movie2 prop:title "The Social Network"@en .
+res:Movie2 prop:year "2010"^^<http://www.w3.org/2001/XMLSchema#integer> .
+res:Movie2 prop:runtime "120 min".
+res:Movie2 prop:plot "Harvard student Mark Zuckerberg creates the social networking site that would become known as Facebook, but is later sued by two brothers who claimed he stole their idea, and the co-founder who was later squeezed out of the business."@en .
+res:Movie2 prop:country "USA"@en .
+res:Movie2 prop:genre "Biography"@en .
+res:Movie2 prop:genre "Drama"@en .
+
+res:Movie2 prop:director res:Person6 .
+res:Person6 rdf:type class:Person .
+res:Person6 prop:name "David Fincher" .
+
+res:Movie2 prop:actor res:Person7 .
+res:Person7 rdf:type class:Person .
+res:Person7 prop:name "Jesse Eisenberg" .
+res:Movie2 prop:actor res:Person8 .
+res:Person8 rdf:type class:Person .
+res:Person8 prop:name "Rooney Mara" .
+res:Movie2 prop:actor res:Person9 .
+res:Person9 rdf:type class:Person .
+res:Person9 prop:name "Bryan Barter" .
+res:Movie2 prop:actor res:Person10 .
+res:Person10 rdf:type class:Person .
+res:Person10 prop:name "Dustin Fitzsimons" .
+
+res:Movie2 prop:rating _:d . 
+_:d prop:source "Internet Movie Database"@en .
+_:d prop:value "7.7"^^<http://www.w3.org/2001/XMLSchema#double> .
+res:Movie2 prop:rating _:e . 
+_:e prop:source "Rotten Tomatoes"@en .
+_:e prop:value "9.6"^^<http://www.w3.org/2001/XMLSchema#double> .
+res:Movie2 prop:rating _:f . 
+_:f prop:source "Metacritic"@en .
+_:f prop:value "9.5"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+
+res:Movie3 rdf:type class:Movie .
+res:Movie3 prop:title "A.I. Artificial Intelligence"@en .
+res:Movie3 prop:year "2001"^^<http://www.w3.org/2001/XMLSchema#integer> .
+res:Movie3 prop:runtime "146 min".
+res:Movie3 prop:plot "A highly advanced robotic boy longs to become real so that he can regain the love of his human mother."@en .
+res:Movie3 prop:country "USA"@en .
+res:Movie3 prop:genre "Adventure"@en .
+res:Movie3 prop:genre "Drama"@en .
+res:Movie3 prop:genre "SciFi"@en .
+
+res:Movie3 prop:director res:Person11 .
+res:Person11 rdf:type class:Person .
+res:Person11 prop:name "Steven Spielberg" .
+
+res:Movie3 prop:actor res:Person12 .
+res:Person12 rdf:type class:Person .
+res:Person12 prop:name "Haley Joel Osment" .
+res:Movie3 prop:actor res:Person13 .
+res:Person13 rdf:type class:Person .
+res:Person13 prop:name "Frances O'Connor" .
+res:Movie3 prop:actor res:Person14 .
+res:Person14 rdf:type class:Person .
+res:Person14 prop:name "Sam Robards" .
+res:Movie3 prop:actor res:Person15 .
+res:Person15 rdf:type class:Person .
+res:Person15 prop:name "Jake Thomas" .
+
+res:Movie3 prop:rating _:g . 
+_:g prop:source "Internet Movie Database"@en .
+_:g prop:value "7.1"^^<http://www.w3.org/2001/XMLSchema#double> .
+res:Movie3 prop:rating _:h . 
+_:h prop:source "Rotten Tomatoes"@en .
+_:h prop:value "7.3"^^<http://www.w3.org/2001/XMLSchema#double> .
+res:Movie3 prop:rating _:i . 
+_:i prop:source "Metacritic"@en .
+_:i prop:value "6.5"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+
+res:Movie4 rdf:type class:Movie .
+res:Movie4 prop:title "Blade Runner"@en .
+res:Movie4 prop:year "1982"^^<http://www.w3.org/2001/XMLSchema#integer> .
+res:Movie4 prop:runtime "117 min".
+res:Movie4 prop:plot "A blade runner must pursue and try to terminate four replicants who stole a ship in space and have returned to Earth to find their creator."@en .
+res:Movie4 prop:country "USA"@en .
+res:Movie4 prop:genre "Thriller"@en .
+res:Movie4 prop:genre "SciFi"@en .
+
+res:Movie4 prop:director res:Person16 .
+res:Person16 rdf:type class:Person .
+res:Person16 prop:name "Ridley Scott" .
+
+res:Movie4 prop:actor res:Person17 .
+res:Person17 rdf:type class:Person .
+res:Person17 prop:name "Harrison Ford" .
+res:Movie4 prop:actor res:Person18 .
+res:Person18 rdf:type class:Person .
+res:Person18 prop:name "Rutger Hauer" .
+res:Movie4 prop:actor res:Person19 .
+res:Person19 rdf:type class:Person .
+res:Person19 prop:name "Sean Young" .
+res:Movie4 prop:actor res:Person20 .
+res:Person20 rdf:type class:Person .
+res:Person20 prop:name "Edward James Olmos" .
+
+res:Movie4 prop:rating _:j . 
+_:j prop:source "Internet Movie Database"@en .
+_:j prop:value "8.2"^^<http://www.w3.org/2001/XMLSchema#double> .
+res:Movie4 prop:rating _:k . 
+_:k prop:source "Rotten Tomatoes"@en .
+_:k prop:value "8.9"^^<http://www.w3.org/2001/XMLSchema#double> .
+res:Movie4 prop:rating _:l . 
+_:l prop:source "Metacritic"@en .
+_:l prop:value "8.9"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+
+res:Movie1 prop:actor res:Person21 .
+res:Person21 rdf:type class:Person .
+res:Person21 prop:name "Otro 1" .
+
+res:Movie2 prop:actor res:Person21 .
+res:Movie2 prop:actor res:Person22 .
+res:Person22 rdf:type class:Person .
+res:Person22 prop:name "Otro 2" .
+
+res:Movie3 prop:actor res:Person22 .
+res:Movie3 prop:actor res:Person23 .
+res:Person23 rdf:type class:Person .
+res:Person23 prop:name "Otro 3" .
+
+res:Movie4 prop:actor res:Person23 .
+res:Movie1 prop:actor res:Person23 .

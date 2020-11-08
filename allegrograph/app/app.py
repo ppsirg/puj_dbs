@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI
 from franz.openrdf.connect import ag_connect
 from populate import check_data
@@ -6,7 +7,9 @@ from queries import search
 
 app = FastAPI()
 
-conn = ag_connect('repo', host='allegrograph-db', port=10035, user='admin', password='pass')
+host = 'allegrograph-db' if os.getenv('WAIT_HOSTS') else 'localhost'
+
+conn = ag_connect('try1', host=host, port=10035, user='admin', password='pass')
 check_data(conn, 'data.txt')
 
 
@@ -15,10 +18,22 @@ def list_hashtag(hashtag:str):
     """
     Listar todos los mensajes de un hashtag dado en orden cronológico.
     """
-    query = """SELECT ?s ?p ?o { 
-        ?s ?p ?o . }
+    query = """prefix  res:   <http://example.com/resource/>
+        prefix  ex:    <http://example.com/>
+        prefix  class: <http://example.com/class/>
+        prefix  prop:  <http://example.com/property/>
+        prefix  rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+        SELECT ?message ?txt ?ht ?dt WHERE {
+        ?message rdf:type class:Message. 
+        ?message prop:content ?txt. 
+        ?message prop:hashtag ?ht.
+        ?message prop:date ?dt 
+        FILTER( ?ht = "#--hashtag--")}
+
+    ORDER BY DESC(?dt)
     """
-    data = search(conn, query, ['s', 'p', 'o'])
+    data = search(conn, query.replace('--hashtag--', hashtag), ['message', 'txt', 'ht', 'dt'])
     return data
 
 
@@ -29,10 +44,31 @@ def list_messages(usr:str):
     1º de  mayo de  2018  y, en caso  de  haber recibido réplicas 
     a esos mensajes, el texto de las réplicas
     """
-    query = """SELECT ?s ?p ?o { 
-        ?s ?p ?o . }
+    query = """prefix  res:   <http://example.com/resource/>
+        prefix  ex:    <http://example.com/>
+        prefix  class: <http://example.com/class/>
+        prefix  prop:  <http://example.com/property/>
+        prefix  rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        
+        SELECT ?message ?id ?person ?dt ?txt ?reply ?txtRp WHERE {
+            ?message rdf:type class:Message.
+            ?person rdf:type class:Person.
+            ?message prop:owner ?person.
+            ?person prop:userid ?id.
+            ?message prop:date ?dt.
+            OPTIONAL{?message prop:content ?txt}.
+            OPTIONAL{?message prop:reply ?reply.
+                    ?reply prop:content ?txtRp}.
+            FILTER( 
+                ?dt > xsd:dateTime("2018-01-24T00:00:40") &&
+                ?id = "--user--"
+                    )}
     """
-    data = search(conn, query, ['s', 'p', 'o'])
+    data = search(
+        conn, 
+        query.replace('--user--', usr), 
+        ['message', 'id', 'person', 'dt', 'txt', 'reply', 'txtRp']
+        )
     return data
 
 

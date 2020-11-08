@@ -1,0 +1,36 @@
+version: "0.1"
+
+services:
+  app:
+    container_name: app_allegro
+    restart: always
+    build:
+      context: .
+      dockerfile: ./app/Dockerfile
+    command: bash -c "
+      uvicorn app:app --host 0.0.0.0 --port 7000 --reload"
+    volumes:
+      ./app:/app
+    ports:
+      - target: 7000
+        published: 7000
+        protocol: tcp
+        mode: host
+    depends-on:
+      - allegrograph-db
+  
+  allegrograph-db:
+    restart: always
+    image: franzinc/agraph:v7.0.0
+    environment:
+      AGRAPH_SUPER_USER:  admin
+      AGRAPH_SUPER_PASSWORD: pass
+    ports:
+      - 10000-10035:10000-10035
+    volumes:
+      - agdata:/agraph/data
+      - agconfig:/agraph/etc
+
+volumes:
+  agdata:
+  agconfig:

@@ -1,6 +1,9 @@
 # Funcionamiento de la aplicacion
 
-1. MER: ![MER](https://github.com/ppsirg/puj_dbs/blob/master/allegrograph/RDF_PUJ_Taller.png?raw=true)
+1. MER: 
+
+![MER](https://github.com/ppsirg/puj_dbs/blob/master/allegrograph/RDF_PUJ_Taller.png?raw=true)
+
 2. Ejecutar el comando 
 ´´´
 docker run -it --rm \

@@ -3,7 +3,7 @@ version: '3'
 services:
     allegrograph-db:
         restart: always
-        shm_size: 1g
+        shm_size: 2g
         image: franzinc/agraph:v7.0.0
         environment:
           AGRAPH_SUPER_USER:  admin
@@ -20,4 +20,7 @@ services:
         volumes:
             - ./app:/app
         ports:
-          - 7000:7000
+            - 7000:7000
+        environment:
+            WAIT_HOSTS: allegrograph-db:10035
+            WAIT_BEFORE_HOSTS: 90

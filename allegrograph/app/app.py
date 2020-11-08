@@ -1,8 +1,15 @@
 from fastapi import FastAPI
 from franz.openrdf.connect import ag_connect
+from .populate import check_data
 
 
 app = FastAPI()
+conn = ag_connect(
+    'repo', host='localhost', port=10035,
+    user='admin', password='pass'
+    )
+check_data(conn, 'data.txt')
+
 
 @app.get('/list/hashtag/{hashtag}')
 def list_hashtag(hashtag:str):
@@ -10,6 +17,7 @@ def list_hashtag(hashtag:str):
     Listar todos los mensajes de un hashtag dado en orden cronológico.
     """
     return {'holi': 'holi'}
+
 
 @app.get('/list/messages/{usr}')
 def list_messages(usr:str):
@@ -20,6 +28,7 @@ def list_messages(usr:str):
     """
     return {'holi': 'holi'}
 
+
 @app.get('/related_countries')
 def list_related_countries():
     """
@@ -27,6 +36,7 @@ def list_related_countries():
     de los mensajes que han puesto usuarios que viven en Colombia
     """
     return {'holi': 'holi'}
+
 
 @app.get('/followers/{usr}')
 def get_followers(usr:str):
@@ -36,6 +46,7 @@ def get_followers(usr:str):
     los seguidores de los seguidores de sus seguidores, etc
     """
     return {'holi': 'holi'}
+
 
 @app.get('/get_origin/{msg}')
 def get_origin(msg:str):
@@ -62,3 +73,8 @@ def make_connection(parameter_list):
         user='admin', password='pass') as conn:
         print(conn.size())
         import pdb; pdb.set_trace()
+
+
+@app.on_event("shutdown")
+def shutdown_event():
+    conn.close()

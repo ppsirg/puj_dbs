@@ -19,6 +19,6 @@
 
 9. Ejecutar la prueba
 
-![EXC](https://github.com/ppsirg/puj_dbs/blob/master/allegrograph/step3-exec.png?raw=true)
+![EXC](https://github.com/ppsirg/puj_dbs/blob/master/allegrograph/step2-exec.png?raw=true)
 
 10. Enjoy it!!

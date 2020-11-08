@@ -1,6 +1,6 @@
 FROM python:3.7
 WORKDIR /opt/app
-RUN pip install pip install fastapi uvicorn agraph-python six
+RUN pip install pip install fastapi uvicorn agraph-python six faker
 #COPY . /app
 COPY . .
 ENV WAIT_VERSION 2.7.3

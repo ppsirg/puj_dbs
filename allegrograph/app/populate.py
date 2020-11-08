@@ -1,14 +1,19 @@
+import os
 from faker import Faker
 from datetime import datetime, timedelta
 from random import randint, choice
 from franz.openrdf.rio.rdfformat import RDFFormat
 fk = Faker()
 
-def check_data(conn, filepath):
+def check_data(conn, filename):
     """
     import data from file in turtle format
     """
-    conn.add(filepath,format=RDFFormat.TURTLE)
+    data = [a for a in conn.getStatements(None, None, None, None)]
+    if len(data) == 0:
+        base = os.path.dirname(os.path.abspath(__file__))
+        filepath = os.path.join(base, filename)
+        conn.add(filepath,format=RDFFormat.TURTLE)
 
 
 def get_hst():

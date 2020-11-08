@@ -1,13 +1,12 @@
 from fastapi import FastAPI
 from franz.openrdf.connect import ag_connect
-from .populate import check_data
+from populate import check_data
+from queries import search
 
 
 app = FastAPI()
-conn = ag_connect(
-    'repo', host='localhost', port=10035,
-    user='admin', password='pass'
-    )
+
+conn = ag_connect('repo', host='allegrograph-db', port=10035, user='admin', password='pass')
 check_data(conn, 'data.txt')
 
 
@@ -16,7 +15,11 @@ def list_hashtag(hashtag:str):
     """
     Listar todos los mensajes de un hashtag dado en orden cronológico.
     """
-    return {'holi': 'holi'}
+    query = """SELECT ?s ?p ?o { 
+        ?s ?p ?o . }
+    """
+    data = search(conn, query, ['s', 'p', 'o'])
+    return data
 
 
 @app.get('/list/messages/{usr}')
@@ -26,7 +29,11 @@ def list_messages(usr:str):
     1º de  mayo de  2018  y, en caso  de  haber recibido réplicas 
     a esos mensajes, el texto de las réplicas
     """
-    return {'holi': 'holi'}
+    query = """SELECT ?s ?p ?o { 
+        ?s ?p ?o . }
+    """
+    data = search(conn, query, ['s', 'p', 'o'])
+    return data
 
 
 @app.get('/related_countries')
@@ -35,7 +42,11 @@ def list_related_countries():
     Listar los países de los usuarios que han hecho retweet 
     de los mensajes que han puesto usuarios que viven en Colombia
     """
-    return {'holi': 'holi'}
+    query = """SELECT ?s ?p ?o { 
+        ?s ?p ?o . }
+    """
+    data = search(conn, query, ['s', 'p', 'o'])
+    return data
 
 
 @app.get('/followers/{usr}')
@@ -45,7 +56,11 @@ def get_followers(usr:str):
     los seguidores del usuario, los seguidores de sus seguidores, 
     los seguidores de los seguidores de sus seguidores, etc
     """
-    return {'holi': 'holi'}
+    query = """SELECT ?s ?p ?o { 
+        ?s ?p ?o . }
+    """
+    data = search(conn, query, ['s', 'p', 'o'])
+    return data
 
 
 @app.get('/get_origin/{msg}')
@@ -61,18 +76,11 @@ def get_origin(msg:str):
     retweet del tweet puesto por el usuario A, por lo tanto, el 
     origen es el tweet que puso el usuario A.
     """
-    return {'holi': 'holi'}
-
-
-def make_connection(parameter_list):
+    query = """SELECT ?s ?p ?o { 
+        ?s ?p ?o . }
     """
-    docstring
-    """    
-    with ag_connect(
-        'repo', host='localhost', port=10035,
-        user='admin', password='pass') as conn:
-        print(conn.size())
-        import pdb; pdb.set_trace()
+    data = search(conn, query, ['s', 'p', 'o'])
+    return data
 
 
 @app.on_event("shutdown")

@@ -8,5 +8,6 @@ ADD https://github.com/ufoscout/docker-compose-wait/releases/download/$WAIT_VERS
 RUN chmod +x /wait
 EXPOSE 7000
 #CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "7000", "--reload"]
-#CMD ["ls", "/opt/app"]
-CMD /wait && uvicorn app:app
+#CMD ["ls", "/opt/app"] 
+
+CMD /wait && uvicorn app:app --host 0.0.0.0 --port 7000 --reload

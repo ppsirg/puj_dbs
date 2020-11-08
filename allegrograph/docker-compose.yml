@@ -23,4 +23,4 @@ services:
             - 7000:7000
         environment:
             WAIT_HOSTS: allegrograph-db:10035
-            WAIT_BEFORE_HOSTS: 90
+            WAIT_BEFORE_HOSTS: 30

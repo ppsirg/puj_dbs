@@ -489,3 +489,13 @@ res:Person57 rdf:type class:Person .
 res:Person57 prop:follower res:Person55 .
 res:Person57 prop:userid "dianam@yahoo.com" .
 res:Person57 prop:country "Colombia" .
+
+res:Message1 prop:reply res:Message2 .
+
+res:Message3 prop:reply res:Message1 .
+res:Message4 prop:reply res:Message3 .
+res:Message5 prop:reply res:Message4 .
+res:Message6 prop:reply res:Message5 .
+res:Message7 prop:reply res:Message6 .
+res:Message8 prop:reply res:Message7 .
+res:Message9 prop:reply res:Message8 .

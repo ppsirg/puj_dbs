@@ -109,10 +109,25 @@ def get_followers(usr:str):
     los seguidores del usuario, los seguidores de sus seguidores, 
     los seguidores de los seguidores de sus seguidores, etc
     """
-    query = """SELECT ?s ?p ?o { 
-        ?s ?p ?o . }
+    query = """prefix  res:   <http://example.com/resource/>
+        prefix  ex:    <http://example.com/>
+        prefix  class: <http://example.com/class/>
+        prefix  prop:  <http://example.com/property/>
+        prefix  rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+        SELECT ?usr ?fll ?ml WHERE { 
+        ?usr rdf:type class:Person .
+        ?usr prop:userid ?ml .
+        ?fll rdf:type class:Person .
+        ?usr prop:follower ?fll FILTER ( ?ml = "--user--" ).
+        }
     """
-    data = search(conn, query, ['s', 'p', 'o'])
+    
+    data = search(
+        conn, 
+        query.replace('--user--', usr), 
+        ['usr', 'fll', 'ml']
+        )
     return data
 
 
@@ -129,10 +144,25 @@ def get_origin(msg:str):
     retweet del tweet puesto por el usuario A, por lo tanto, el 
     origen es el tweet que puso el usuario A.
     """
-    query = """SELECT ?s ?p ?o { 
-        ?s ?p ?o . }
+    query = """prefix  res:   <http://example.com/resource/>
+        prefix  ex:    <http://example.com/>
+        prefix  class: <http://example.com/class/>
+        prefix  prop:  <http://example.com/property/>
+        prefix  rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+        SELECT ?org ?msg ?dt ?nm WHERE { 
+        ?msg rdf:type class:Message .
+        ?org rdf:type class:Message .
+        ?org prop:date ?dt .
+        ?org prop:owner ?own .
+        ?own prop:name ?nm .
+        ?msg prop:reply ?org . }
     """
-    data = search(conn, query, ['s', 'p', 'o'])
+    data = search(
+        conn, 
+        query.replace('--msg--', usr), 
+        ['org', 'msg', 'dt', 'nm']
+        )
     return data
 
 

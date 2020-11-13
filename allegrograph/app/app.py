@@ -78,10 +78,27 @@ def list_related_countries():
     Listar los países de los usuarios que han hecho retweet 
     de los mensajes que han puesto usuarios que viven en Colombia
     """
-    query = """SELECT ?s ?p ?o { 
-        ?s ?p ?o . }
+    query = """prefix  res:   <http://example.com/resource/>
+        prefix  ex:    <http://example.com/>
+        prefix  class: <http://example.com/class/>
+        prefix  prop:  <http://example.com/property/>
+        prefix  rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        SELECT ?user_origin ?country_origin ?country_reply ?message_origin WHERE {
+            ?message rdf:type class:Message.
+            ?reply rdf:type class:Message.
+            ?person rdf:type class:Person.
+            ?preply rdf:type class:Person.
+            ?message prop:owner ?person.
+            ?message prop:content ?message_origin.
+            ?person prop:userid ?user_origin.
+            ?person prop:country ?country_origin.
+            ?message prop:reply ?reply.
+            ?reply prop:owner ?preply.
+            ?preply prop:country ?country_reply
+            FILTER ( ?country_origin="Colombia")
+        }
     """
-    data = search(conn, query, ['s', 'p', 'o'])
+    data = search(conn, query, ['user_origin', 'country_origin', 'country_reply', 'message_origin'])
     return data
 
 

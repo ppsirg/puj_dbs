@@ -6,229 +6,261 @@
 
 
 res:Message1 rdf:type class:Message .
-res:Message1 prop:content "Body night participant nice effect. According represent piece student loss risk mother." .  
+res:Message1 prop:content "Civil Republican method I window talk. Husband ready several sea. Suffer senior avoid dream four." .  
+res:Message1 prop:reply res:Message2 .
 res:Message1 prop:hashtag "#Museum/gallery" .
+res:Message1 prop:owner res:Person2 .
 res:Message1 prop:date "2020-07-31T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message2 rdf:type class:Message .
 res:Message2 prop:content "Civil Republican method I window talk. Husband ready several sea. Suffer senior avoid dream four." .
 res:Message2 prop:hashtag "#Scientist," .
+res:Message2 prop:owner res:Person2 .
 res:Message2 prop:date "2020-09-15T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message3 rdf:type class:Message .
 res:Message3 prop:content "Great market strategy identify. Student can relate size deal piece into. Return idea treatment growth. Couple do environment. ." .
 res:Message3 prop:hashtag "#Television" .
+res:Message3 prop:owner res:Person3 .
 res:Message3 prop:date "2020-09-24T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message4 rdf:type class:Message .
 res:Message4 prop:content "Natural else image hope treat real. Where prove garden organization. Data natural book through exactly hair later. ." .
 res:Message4 prop:hashtag "#Fashion" .
+res:Message4 prop:owner res:Person4 .
 res:Message4 prop:date "2020-09-12T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message5 rdf:type class:Message .
-res:Message5 prop:content "Music that win these. Need scene teacher relate glass fish school through. Without this item economic blue. ." .
+res:Message5 prop:content "Dark bit determine it prepare author. Wide strategy nearly however Mrs serve fine heart. Us health present increase item work site. ." .
 res:Message5 prop:hashtag "#Archaeologist" .
+res:Message5 prop:owner res:Person6 .
 res:Message5 prop:date "2020-09-09T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message6 rdf:type class:Message .
 res:Message6 prop:content "Dark bit determine it prepare author. Wide strategy nearly however Mrs serve fine heart. Us health present increase item work site. ." .
 res:Message6 prop:hashtag "#Scientist," .
+res:Message6 prop:owner res:Person6 .
 res:Message6 prop:date "2020-09-26T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message7 rdf:type class:Message .
-res:Message7 prop:content "Serious call why safe choice environment attention talk. Manage per senior agent public technology example tree. ." .
+res:Message7 prop:content "Time wall politics go kitchen put. Thing father western home eye many. Which yourself order first indeed sort." .
+res:Message7 prop:reply res:Message6 .
 res:Message7 prop:hashtag "#Ranger/warden" .
+res:Message7 prop:owner res:Person8 .
 res:Message7 prop:date "2020-09-13T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message8 rdf:type class:Message .
 res:Message8 prop:content "Time wall politics go kitchen put. Thing father western home eye many. Which yourself order first indeed sort." .
 res:Message8 prop:hashtag "#Sales" .
+res:Message8 prop:owner res:Person8 .
 res:Message8 prop:date "2020-10-08T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message9 rdf:type class:Message .
 res:Message9 prop:content "Hospital walk market about bring yourself effect ball." .
 res:Message9 prop:hashtag "#Water" .
+res:Message9 prop:owner res:Person9 .
 res:Message9 prop:date "2020-10-26T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message10 rdf:type class:Message .
 res:Message10 prop:content "Nor role because lead data positive sing inside. Image performance area term on per bag. ." .
 res:Message10 prop:hashtag "#Market" .
+res:Message10 prop:owner res:Person10 .
 res:Message10 prop:date "2020-10-25T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message11 rdf:type class:Message .
 res:Message11 prop:content "Degree participant budget my. Team note answer various significant share few world. Career become hope environment bad. Model win move modern any imagine dark. ." .
 res:Message11 prop:hashtag "#Production" .
+res:Message11 prop:owner res:Person11 .
 res:Message11 prop:date "2020-08-30T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message12 rdf:type class:Message .
 res:Message12 prop:content "Thing option organization door senior. Huge out significant late interesting food." .
 res:Message12 prop:hashtag "#Pilot," .
+res:Message12 prop:owner res:Person12 .
 res:Message12 prop:date "2020-10-24T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message13 rdf:type class:Message .
 res:Message13 prop:content "Effort inside both heart. North million front nice citizen. However catch professor often sing miss. ." .
 res:Message13 prop:hashtag "#Tax" .
+res:Message13 prop:owner res:Person13 .
 res:Message13 prop:date "2020-10-23T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message14 rdf:type class:Message .
 res:Message14 prop:content "Conference beautiful back understand million long service. Media say wind more." .
 res:Message14 prop:hashtag "#Management" .
+res:Message14 prop:owner res:Person14 .
 res:Message14 prop:date "2020-09-24T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message15 rdf:type class:Message .
 res:Message15 prop:content "Week still develop public meet lay. Research range environmental report line interview. Soon establish investment new discussion create." .
 res:Message15 prop:hashtag "#Scientist," .
+res:Message15 prop:owner res:Person15 .
 res:Message15 prop:date "2020-10-05T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message16 rdf:type class:Message .
 res:Message16 prop:content "Police hand thought friend garden big. Experience consumer knowledge check source black program." .
 res:Message16 prop:hashtag "#Editor," .
+res:Message16 prop:owner res:Person16 .
 res:Message16 prop:date "2020-08-15T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message17 rdf:type class:Message .
 res:Message17 prop:content "Suddenly enjoy sign foreign participant fund. Buy arm record class possible social national recently." .
 res:Message17 prop:hashtag "#Theatre" .
+res:Message17 prop:owner res:Person17 .
 res:Message17 prop:date "2020-11-02T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message18 rdf:type class:Message .
 res:Message18 prop:content "Charge central have sound." .
 res:Message18 prop:hashtag "#Marketing" .
+res:Message18 prop:owner res:Person18 .
 res:Message18 prop:date "2020-10-18T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message19 rdf:type class:Message .
 res:Message19 prop:content "Thing cold north. Turn experience outside everybody goal. International fill time hot natural." .
+res:Message19 prop:reply res:Message20 .
 res:Message19 prop:hashtag "#Mining" .
+res:Message19 prop:owner res:Person20 .
 res:Message19 prop:date "2020-11-03T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message20 rdf:type class:Message .
 res:Message20 prop:content "Become before buy morning chair break. Up budget task." .
 res:Message20 prop:hashtag "#Solicitor," .
+res:Message20 prop:owner res:Person21 .
 res:Message20 prop:date "2020-10-31T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message21 rdf:type class:Message .
 res:Message21 prop:content "Television especially four personal how. Popular team interest begin show research back report. Career would mean argue financial. ." .
 res:Message21 prop:hashtag "#Neurosurgeon" .
+res:Message21 prop:owner res:Person21 .
 res:Message21 prop:date "2020-09-02T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message22 rdf:type class:Message .
-res:Message22 prop:content "Not defense piece be teach." .
+res:Message22 prop:content "If read let something president deal. State plan agency here yes these during reduce. Training their program enough anyone region entire. ." .
+res:Message22 prop:reply res:Message23 .
 res:Message22 prop:hashtag "#Retail" .
+res:Message22 prop:owner res:Person24 .
 res:Message22 prop:date "2020-08-20T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message23 rdf:type class:Message .
 res:Message23 prop:content "If read let something president deal. State plan agency here yes these during reduce. Training their program enough anyone region entire. ." .
 res:Message23 prop:hashtag "#Chiropractor" .
+res:Message23 prop:owner res:Person24 .
 res:Message23 prop:date "2020-08-07T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message24 rdf:type class:Message .
 res:Message24 prop:content "Foot firm same. Two plant seem people each lay." .
 res:Message24 prop:hashtag "#Private" .
+res:Message24 prop:owner res:Person25 .
 res:Message24 prop:date "2020-10-04T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message25 rdf:type class:Message .
 res:Message25 prop:content "Still message officer old local. Television partner fine." .
 res:Message25 prop:hashtag "#Information" .
+res:Message25 prop:owner res:Person25 .
 res:Message25 prop:date "2020-10-11T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message26 rdf:type class:Message .
 res:Message26 prop:content "Available next stop specific idea whole. Executive cause avoid number store. Dinner figure wear significant true treatment. ." .
 res:Message26 prop:hashtag "#Engineer," .
+res:Message26 prop:owner res:Person27 .
 res:Message26 prop:date "2020-10-04T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message27 rdf:type class:Message .
 res:Message27 prop:content "Daughter record state best energy certainly worry. Free suggest line alone. Party color tree light." .
 res:Message27 prop:hashtag "#Trade" .
+res:Message27 prop:owner res:Person29 .
 res:Message27 prop:date "2020-09-18T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message28 rdf:type class:Message .
 res:Message28 prop:content "Rock half them agreement recent least loss. Operation clearly tax campaign especially scene building." .
 res:Message28 prop:hashtag "#Senior" .
+res:Message28 prop:owner res:Person29 .
 res:Message28 prop:date "2020-09-10T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message29 rdf:type class:Message .
-res:Message29 prop:content "Everyone bit past somebody yes watch gun. Church about well community spend practice data food. Police among material. ." .
+res:Message29 prop:content "Mrs manage appear free season serve play. Only reveal lay wish everyone." .
+res:Message29 prop:reply res:Message30 .
 res:Message29 prop:hashtag "#Teacher," .
+res:Message29 prop:owner res:Person30 .
 res:Message29 prop:date "2020-08-06T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message30 rdf:type class:Message .
 res:Message30 prop:content "Mrs manage appear free season serve play. Only reveal lay wish everyone." .
+res:Message30 prop:reply res:Message31 .
 res:Message30 prop:hashtag "#Production" .
+res:Message30 prop:owner res:Person31 .
 res:Message30 prop:date "2020-09-08T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message31 rdf:type class:Message .
-res:Message31 prop:content "Level send behind Congress son develop why. Quickly yeah suffer treat." .
+res:Message31 prop:content "Mrs manage appear free season serve play. Only reveal lay wish everyone." .
 res:Message31 prop:hashtag "#Restaurant" .
+res:Message31 prop:owner res:Person31 .
 res:Message31 prop:date "2020-11-05T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message32 rdf:type class:Message .
 res:Message32 prop:content "Would car himself wish like team. Agree wish bring family start sound price. ." .
 res:Message32 prop:hashtag "#Event" .
+res:Message32 prop:owner res:Person33 .
 res:Message32 prop:date "2020-10-11T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message33 rdf:type class:Message .
 res:Message33 prop:content "Both west own happy else let. Hot reason example sister under perhaps." .
 res:Message33 prop:hashtag "#Occupational" .
+res:Message33 prop:owner res:Person31 .
 res:Message33 prop:date "2020-09-30T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message34 rdf:type class:Message .
 res:Message34 prop:content "Memory close relationship though federal nothing. Question school box." .
 res:Message34 prop:hashtag "#Medical" .
+res:Message34 prop:owner res:Person31 .
 res:Message34 prop:date "2020-09-21T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message35 rdf:type class:Message .
 res:Message35 prop:content "Course official too town." .
 res:Message35 prop:hashtag "#Plant" .
+res:Message35 prop:owner res:Person31 .
 res:Message35 prop:date "2020-10-12T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message36 rdf:type class:Message .
 res:Message36 prop:content "Senior have nor amount choose painting. Agree option know could start air. Share describe enough both. ." .
 res:Message36 prop:hashtag "#Psychologist," .
+res:Message36 prop:owner res:Person36 .
 res:Message36 prop:date "2020-09-29T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message37 rdf:type class:Message .
 res:Message37 prop:content "Build door old hour however each. Let why his recognize though best. Interest dream section under. ." .
 res:Message37 prop:hashtag "#Recruitment" .
+res:Message37 prop:owner res:Person36 .
 res:Message37 prop:date "2020-08-01T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message38 rdf:type class:Message .
 res:Message38 prop:content "Bank participant cause research. Place picture technology their." .
 res:Message38 prop:hashtag "#Lexicographer" .
+res:Message38 prop:owner res:Person31 .
 res:Message38 prop:date "2020-09-27T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message39 rdf:type class:Message .
 res:Message39 prop:content "Six go how nor maintain consider baby speak. Success report enjoy your. Left before week who long. Avoid region old. ." .
 res:Message39 prop:hashtag "#Engineer," .
+res:Message39 prop:owner res:Person12 .
 res:Message39 prop:date "2020-10-12T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message40 rdf:type class:Message .
 res:Message40 prop:content "Knowledge several quality sing authority suffer hand. Lay student share hospital worker price reason almost." .
 res:Message40 prop:hashtag "#Dance" .
+res:Message40 prop:owner res:Person10 .
 res:Message40 prop:date "2020-10-15T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message41 rdf:type class:Message .
 res:Message41 prop:content "Trade international interesting glass. Nor color catch challenge pressure. Strong carry toward pay fund mouth." .
 res:Message41 prop:hashtag "#Special" .
+res:Message41 prop:owner res:Person13 .
 res:Message41 prop:date "2020-10-12T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message42 rdf:type class:Message .
 res:Message42 prop:content "Here give special toward course lot responsibility. Rule agree who two into business carry once. Decision marriage door specific not Congress. ." .
 res:Message42 prop:hashtag "#Engineer," .
+res:Message42 prop:owner res:Person31 .
 res:Message42 prop:date "2018-04-18T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message43 rdf:type class:Message .
 res:Message43 prop:content "Opportunity event that program season half work." .
 res:Message43 prop:hashtag "#Fitness" .
+res:Message33 prop:owner res:Person31 .
 res:Message43 prop:date "2010-09-27T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message44 rdf:type class:Message .
 res:Message44 prop:content "Camera hard doctor. Bit spring total fly actually phone house." .
 res:Message44 prop:hashtag "#Multimedia" .
+res:Message44 prop:owner res:Person1 .
 res:Message44 prop:date "2010-08-05T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message45 rdf:type class:Message .
 res:Message45 prop:content "Party where partner air. Head place speech hope because." .
 res:Message45 prop:hashtag "#Environmental" .
+res:Message45 prop:owner res:Person2 .
 res:Message45 prop:date "2016-08-05T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message46 rdf:type class:Message .
 res:Message46 prop:content "Not community parent risk month. Necessary focus room." .
 res:Message46 prop:hashtag "#Presenter," .
+res:Message46 prop:owner res:Person3 .
 res:Message46 prop:date "2016-08-17T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message47 rdf:type class:Message .
 res:Message47 prop:content "With skin speak. Especially hundred respond." .
 res:Message47 prop:hashtag "#Environmental" .
+res:Message47 prop:owner res:Person4 .
 res:Message47 prop:date "2016-08-18T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message48 rdf:type class:Message .
 res:Message48 prop:content "Government get him understand. Law discover research rock meet leg. ." .
 res:Message48 prop:hashtag "#Field" .
+res:Message48 prop:owner res:Person5 .
 res:Message48 prop:date "2017-10-31T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message49 rdf:type class:Message .
 res:Message49 prop:content "Especially four marriage guess until nice. Significant key home. Occur care town government state main for. ." .
 res:Message49 prop:hashtag "#Psychotherapist," .
+res:Message49 prop:owner res:Person6 .
 res:Message49 prop:date "2020-10-01T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Message50 rdf:type class:Message .
 res:Message50 prop:content "Foreign often spring land young high become. Writer future security range. Myself image strong after financial happy hand. ." .
 res:Message50 prop:hashtag "#Magazine" .
+res:Message50 prop:owner res:Person22 .
 res:Message50 prop:date "2020-09-24T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
-res:Message51 rdf:type class:Message .
-res:Message51 prop:reply res:Message49 .
-res:Message51 prop:hashtag "#Magazine" .
-res:Message51 prop:date "2016-09-24T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
-res:Message52 rdf:type class:Message .
-res:Message52 prop:reply res:Message48 .
-res:Message52 prop:hashtag "#Magazine" .
-res:Message52 prop:date "2018-01-24T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
-res:Message53 rdf:type class:Message .
-res:Message53 prop:reply res:Message47 .
-res:Message53 prop:hashtag "#Engineer" .
-res:Message53 prop:date "2018-02-24T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
-res:Message54 rdf:type class:Message .
-res:Message54 prop:owner res:Person1 .
-res:Message54 prop:hashtag "#Engineer" .
-res:Message54 prop:date "2018-01-24T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
-res:Message55 rdf:type class:Message .
-res:Message55 prop:owner res:Person2 .
-res:Message55 prop:hashtag "#Environmental"  .
-res:Message55 prop:date "2018-01-24T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
-res:Message56 rdf:type class:Message .
-res:Message56 prop:owner res:Person14 .
-res:Message56 prop:hashtag "#Environmental"  .
-res:Message56 prop:date "2010-09-24T21:34:40"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 res:Person1 rdf:type class:Person .
 res:Person1 prop:name "Karen Ramirez" .
 res:Person1 prop:userid "luisjones@gmail.com" .
@@ -252,7 +284,7 @@ res:Person5 prop:country "Bhutan" .
 res:Person6 rdf:type class:Person .
 res:Person6 prop:name "Carly Fleming" .
 res:Person6 prop:userid "dillonchristy@meyers.com" .
-res:Person6 prop:country "Cape Verde" .
+res:Person6 prop:country "Colombia" .
 res:Person7 rdf:type class:Person .
 res:Person7 prop:name "George Wheeler" .
 res:Person7 prop:userid "leah59@cook.info" .
@@ -260,7 +292,7 @@ res:Person7 prop:country "Italy" .
 res:Person8 rdf:type class:Person .
 res:Person8 prop:name "Zachary Walsh" .
 res:Person8 prop:userid "hancockscott@hotmail.com" .
-res:Person8 prop:country "Liechtenstein" .
+res:Person8 prop:country "Australia" .
 res:Person9 rdf:type class:Person .
 res:Person9 prop:name "David Swanson" .
 res:Person9 prop:userid "esimmons@gmail.com" .
@@ -308,7 +340,7 @@ res:Person19 prop:country "Qatar" .
 res:Person20 rdf:type class:Person .
 res:Person20 prop:name "Emma Bullock" .
 res:Person20 prop:userid "spitts@hotmail.com" .
-res:Person20 prop:country "Togo" .
+res:Person20 prop:country "Colombia" .
 res:Person21 rdf:type class:Person .
 res:Person21 prop:name "Cynthia Young" .
 res:Person21 prop:userid "tyler39@perry-johnson.com" .
@@ -350,7 +382,7 @@ res:Person30 prop:name "Scott Osborne" .
 res:Person30 prop:userid "morganayers@brandt.com" .
 res:Person30 prop:country "United States of America" .
 res:Person31 rdf:type class:Person .
-res:Person31 prop:name "Karla White" .
+res:Person31 prop:name "Colombia" .
 res:Person31 prop:userid "btran@newton.biz" .
 res:Person31 prop:country "Tonga" .
 res:Person32 rdf:type class:Person .

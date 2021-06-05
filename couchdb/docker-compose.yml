@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  couchdb_container:
+    image: couchdb:latest
+    environment:
+      COUCHDB_USER: admin
+      COUCHDB_PASSWORD: password
+    ports:
+      - 5994:5984

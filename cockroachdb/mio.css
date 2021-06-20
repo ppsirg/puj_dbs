@@ -1,0 +1,22 @@
+html {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+}
+
+h1 {
+  color: chocolate;
+  font-variant: small-caps;
+}
+
+div#step-2 {
+  font-size: 30px;
+}
+
+div#seems-like {
+  color: cornflowerblue;
+}
+
+pre.highlight.code.bash {
+  background-color: aliceblue;
+  padding: 10px;
+}

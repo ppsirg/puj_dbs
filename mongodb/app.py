@@ -4,6 +4,7 @@ from pprint import pprint
 from views import initialLoginView
 from utils import populate
 import re
+import pdb
 
 is_num = re.compile('\d+')
 
@@ -62,6 +63,7 @@ if __name__ == "__main__":
     context = {
         'db': db
     }
+    pdb.set_trace()
     # if no data, populate database
     mails = populate()
     context['mails'] = mails

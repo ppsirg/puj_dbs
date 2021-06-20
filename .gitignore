@@ -2,6 +2,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/code,linux,python,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=code,linux,python,macos
 
+## custom
+cockroachdb/cockroach-data/
+
 ### Code ###
 .vscode/*
 
